@@ -1,0 +1,63 @@
+<div class="container" id="poslist">
+  <table class="table table-bordered">
+    <caption>理财产品管理 <button class="btn btn-primary" data-toggle="modal" data-target="#posadd-modal">添加</button></caption>
+    <tr>
+      <th>序号</th>
+      <th>产品名称</th>
+      <th>logo</th>
+      <th>期限</th>
+      <th>年化收益率</th>
+      <th>当前进度</th>
+      <th style="text-align: center">操作</th>
+    </tr>
+    <%
+      if (datalist.length > 0) {
+        for (var i = 0; i < datalist.length; i++) {
+    %>
+      <tr>
+        <td style="display:none"><%- datalist[i]._id %></td>
+        <td><%- (i+1) %></td>
+        <td><%- datalist[i].name %></td>
+        <td><img src="/images/upload/<%- datalist[i].logo %>" /></td>
+        <td><%- datalist[i].span %></td>
+        <td><%- datalist[i].rate %></td>
+        <td><%- datalist[i].stepAmount %></td>
+        <td><a href="javascript:void(0);" onclick="update(this)" class="btn btn-primary" type="update">修改</a>
+            <a href="/api/position/delete?id=<%- datalist[i]._id %>" class="btn btn-primary" type="del">删除</a>
+        </td>
+      </tr>
+    <%
+        }
+      } else {
+    %>
+      <tr>
+        <td colspan="6">没有数据</td>
+      </tr>
+    <% } %>
+  </table>
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li>
+        <a href="/api/position/list?pageno=<%- pageNo>0 ? pageNo-1 : 0 %>" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <%
+      for (var i = 0; i < Math.ceil(count/pageSize); i++) {
+        if (i == pageNo) {
+      %>
+          <li class="active"><a href="/api/position/list?pageno=<%- i %>"><%- i+1 %></a></li>
+      <%
+        } else {
+      %>
+        <li><a href="/api/position/list?pageno=<%- i %>"><%- i+1 %></a></li>
+      <% } } %>
+      <li>
+        <a href="/api/position/list?pageno=<%- pageNo<Math.ceil(count/pageSize)-1 ? pageNo+1 : pageNo %>" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<script src="/scripts/module/list.js"></script>

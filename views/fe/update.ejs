@@ -1,0 +1,42 @@
+<div class="modal fade" id="update-modal">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h4>理财产品信息修改</h4>
+      </div>
+      <div class="modal-body">
+        <form id="updateform" method="post" enctype="multipart/form-data" action="/api/position/update">
+          <div class="form-group" style="display:none">
+            <label for="posname">产品ID</label>
+              <input type="text" class="form-control" id="pid-edit" name="id" placeholder="输入产品名称">
+          </div>
+          <div class="form-group">
+            <label for="posname">产品名称</label>
+              <input type="text" class="form-control" id="name-edit" name="name" placeholder="输入产品名称">
+          </div>
+          <div class="form-group">
+            <label for="companyname">当前进度</label>
+              <input type="text" class="form-control" id="stepAmount-edit" name="stepAmount" placeholder="当前进度">
+          </div>
+          <div class="form-group">
+            <label for="companylogo">期限</label>
+              <input type="text" class="form-control" id="span-edit" name="span" placeholder="期限">
+          </div>
+          <div class="form-group">
+            <label for="salary">年化收益率</label>
+              <input type="text" class="form-control" id="rate-edit" name="rate" placeholder="年化收益率">
+          </div>
+          <div class="form-group" style="display:none">
+            <label for="salary">产品logo</label>
+              <input type="text" class="form-control" id="logo-edit" name="logo" placeholder="产品logo">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="updatesubmit" class="btn btn-primary" onclick="updateSubmit()">修改保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/scripts/module/posadd.js"></script>

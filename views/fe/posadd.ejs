@@ -1,0 +1,38 @@
+<div class="modal fade" id="posadd-modal">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h4>理财产品添加</h4>
+      </div>
+      <div class="modal-body">
+        <form id="posaddform" method="post" enctype="multipart/form-data" action="/api/position/add">
+          <div class="form-group">
+            <label for="posname">产品名称</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="输入产品名称">
+          </div>
+          <div class="form-group">
+            <label for="companyname">当前进度</label>
+              <input type="text" class="form-control" id="stepAmount" name="stepAmount" placeholder="当前进度">
+          </div>
+          <div class="form-group">
+            <label for="companylogo">期限</label>
+              <input type="text" class="form-control" id="span" name="span" placeholder="期限">
+          </div>
+          <div class="form-group">
+            <label for="salary">年化收益率</label>
+              <input type="text" class="form-control" id="rate" name="rate" placeholder="年化收益率">
+          </div>
+          <div class="form-group">
+            <label for="salary">产品logo</label>
+              <input type="file" class="form-control" id="logo" name="logo" placeholder="产品logo">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="posaddsubmit" class="btn btn-primary">添加</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/scripts/module/posadd.js"></script>

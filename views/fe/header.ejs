@@ -1,0 +1,30 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			 <button class="navbar-toggle" data-toggle="collapse" data-target="#response-navbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="javascript:void(0)" class="navbar-brand">东宏金融后台管理系统</a>
+		</div>
+		<div class="collapse navbar-collapse" id="response-navbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="/">首页</a></li>
+					<li><a href="/position">产品管理</a></li>
+				</ul>
+				 <ul class="nav navbar-nav navbar-right">
+					<% if (username) { %>
+					<li><a href="#">你好，<%- username %></a></li>
+					<li><a href="/api/users/signout">注销</a></li>
+					<% } else { %>
+					<li><a href="#" data-toggle="modal" data-target="#signin-modal">登录</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#signup-modal">注册</a></li>
+					<% } %>
+				</ul>
+			</ul>
+			</div>
+		</div>
+	</div>
+</nav>
+<script src="/scripts/module/home.js"></script>
